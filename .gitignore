@@ -14,4 +14,4 @@
 /matlab/inputDataChina2022Creditdaily.mat
 /matlab/inputDataChina20172022Creditdaily.mat
 *.pyc
-__pychae__
+__pycache__
