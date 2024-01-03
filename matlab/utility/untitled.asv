@@ -1,0 +1,32 @@
+tday = dateshift(datetime('today'),'start','day');
+T0=tday+duration('09:30:00');
+T1=tday+duration('14:50:00');
+T2=tday+duration('15:00:00');
+T3=tday+duration('09:30:00')+day(1);
+now=datetime('now');
+switch now
+    case abs(now-T0)<minute(1)
+        time=T0;
+    case abs(now-T1)<minute(1)
+        time=T1;
+    case abs(now-T2)<minute(1)
+        time=T2;
+    case T3-now<minute(1)
+        time=T3;
+    case now>T3
+        fprintf(1, '%s :It is not trading time.\n',now);
+        time=NaT;
+end
+
+if abs(now-T0)<minute(1)
+    time=T0;
+elseif abs(now-T1)<minute(1)
+    time=T1;
+elseif abs(now-T2)<minute(1)
+    time=T2;
+elseif T3-now<minute(1)
+    time=T3;
+else
+    fprintf(1, '%s :It is not trading time ordecesion time.\n',now);
+    time=NaT;
+end
